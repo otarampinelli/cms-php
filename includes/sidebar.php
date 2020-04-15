@@ -4,7 +4,26 @@
 
             if(isset($_POST['submit'])) {
 
-               echo $earch = $_POST['search'];
+               $search = $_POST['search'];
+
+
+               $query = "SELECT * FROM posts WHERE post_tags LIKE '%$search' ";
+
+               $searchQuery = mysqli_query($connection, $query);
+
+               if(!$searchQuery) {
+
+                die("Query failed" . mysqli_error($connection));
+
+               }
+
+               $count = mysqli_num_rows($searchQuery);
+
+               if($count == 0) {
+
+                echo "<h1>No result</h1>";
+
+               }
 
             }
 
