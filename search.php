@@ -1,4 +1,13 @@
+<?php include "includes/db.php"; ?>
+<?php include "includes/header.php"; ?>
 
+<body>
+
+        <!-- Navigation -->
+        <?php include "includes/navigation.php"; ?>
+
+        <!-- Page Content -->
+        
 
 <div class="container">
 
@@ -8,11 +17,35 @@
     <div class="col-md-8">
 
         <?php 
-       
-            $query = "SELECT * FROM posts";
-            $select_all_posts_query = mysqli_query($connection, $query);
 
-            while($row = mysqli_fetch_assoc($select_all_posts_query)) {
+            if(isset($_POST['submit'])) {
+
+            $search = $_POST['search'];
+
+
+            $query = "SELECT * FROM posts WHERE post_tags LIKE '%$search' ";
+
+            $searchQuery = mysqli_query($connection, $query);
+
+            if(!$searchQuery) {
+
+                die("Query failed" . mysqli_error($connection));
+
+            }
+
+            $count = mysqli_num_rows($searchQuery);
+
+            if($count == 0) {
+
+                echo "<h1>No result</h1>";
+
+            } else {
+                
+                  
+           // $query = "SELECT * FROM posts";
+           // $select_all_posts_query = mysqli_query($connection, $query);
+
+            while($row = mysqli_fetch_assoc($searchQuery)) {
                 $post_title = $row['post_title'];
                 $post_author = $row['post_author'];
                 $post_date = $row['post_date'];
@@ -46,7 +79,14 @@
                 <hr>
 
                 
-           <?php } ?>
+           <?php } 
+
+            }
+
+            }
+            
+            ?>
+     
 
 
         <!-- Second Blog Post -->
@@ -64,3 +104,24 @@
         </ul>
 
     </div>
+
+        <?php include "includes/sidebar.php"; ?>
+
+        <!-- /.row -->
+
+        <hr>
+
+        <?php include "includes/footer.php"; ?>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
