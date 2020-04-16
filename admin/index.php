@@ -1,11 +1,11 @@
-<?php include "includes/header.php"; ?>
+<?php include "includes/headerAdmin.php"; ?>
 
 <body>
 
     <div id="wrapper">
 
         <!-- Navigation -->
-        <?php include "includes/navigation.php"; ?>
+        <?php include "includes/navigationAdmin.php"; ?>
 
 
         <div id="page-wrapper">
