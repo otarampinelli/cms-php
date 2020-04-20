@@ -41,12 +41,13 @@
                                     echo "<td>{$postTags}</td>";
                                     echo "<td>{$postComments}</td>";
                                     echo "<td>{$postDate}</td>";
+                                    echo "<td><a href='posts.php?delete={$postId}'>Delete</a></td>";
                                     echo "</tr>";
                                 }
 
                             ?>
 
-                            
+                            <!--
                                 <td>10</td>
                                 <td>John</td>
                                 <td>Bootstrap Framework</td>
@@ -56,6 +57,22 @@
                                 <td>Tags</td>
                                 <td>Comments</td>
                                 <td>Date</td>
+
+                            -->
                             
                         </tbody>
                     </table>
+
+<?php 
+
+   if(isset($_GET['delete'])) {
+
+    $idPost = $_GET['delete'];
+
+    $query = "DELETE FROM posts WHERE post_id = {$idPost} ";
+
+    $deleteQuery = mysqli_query($connection, $query);
+
+   }
+
+?>
