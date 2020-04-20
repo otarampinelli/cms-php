@@ -1,5 +1,16 @@
 <?php 
 
+    function confirmQuery($result) {
+
+        Global $connection;
+
+        if(!$result) {
+            die("QUERY FAILED" . mysqli_error($connection));
+        }
+ 
+
+    }
+
     function insertCategories() {
 
         Global $connection;
@@ -68,5 +79,7 @@ function deleteCategories() {
     }
 
 }
+
+
 
 ?>

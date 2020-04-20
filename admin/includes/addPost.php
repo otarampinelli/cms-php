@@ -13,10 +13,20 @@
         $postTags = $_POST['postTags'];
         $postContent = $_POST['postContent'];
         $postDate = date('d-m-y');
-        $postCommnet = 4;
+        $postComment = 4;
 
 
         move_uploaded_file($postImageTemp, "../images/$postImages");
+
+        $query = "INSERT INTO posts(post_category_id, post_title, post_author, 
+        post_date, post_image, post_content, post_tags, post_comment_count, post_status) ";
+
+        $query .= "VALUES({$postCategory}, '{$postTitle}', '{$postAuthor}', now(), '{$postImages}', '{$postContent}', 
+        '{$postTags}', '{$postComment}', '{$postStatus}' ) ";
+
+        $postQuery = mysqli_query($connection, $query);
+
+       confirmQuery($postQuery);
 
     }
 
