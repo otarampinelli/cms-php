@@ -6,7 +6,7 @@
 
     }
 
-    $query = "SELECT * FROM posts";
+    $query = "SELECT * FROM posts WHERE post_id = $getPost ";
     $editPosts = mysqli_query($connection, $query);
 
     while($row = mysqli_fetch_assoc($editPosts)) {
@@ -20,6 +20,51 @@
         $postCommnet = $row['post_comment_count'];
         $postDate = $row['post_date'];
         $postContent = $row['post_content'];
+
+    }
+
+    if(isset($_POST['updatePost'])) {
+
+        $postTitle = $_POST['title'];
+        $postAuthor = $_POST['author'];
+        $postCategory = $_POST['postCategory'];
+        $postStatus = $_POST['postStatus'];
+
+        $postImage = $_FILES['image']['name'];
+        $postImageTemp = $_FILES['image']['tmp_name'];
+
+        $postTags = $_POST['postTags'];
+        $postContent = $_POST['postContent'];
+
+        move_uploaded_file($postImageTemp, "../images/$postImage");
+
+        if(empty($postImage)) {
+
+            $query = "SELECT * FROM posts WHERE post_id = {$getPost} ";
+            $selectImage = mysqli_query($connection, $query);
+
+            while($row = mysqli_fetch_array($selectImage)) {
+
+                $postImage = $row['post_image'];
+
+            }
+
+        }
+
+        $query = "UPDATE posts SET ";
+        $query .= "post_title = '{$postTitle}', ";
+        $query .= "post_category_id = '{$postCategory}', ";
+        $query .= "post_date = now(), ";
+        $query .= "post_author = '{$postAuthor}', ";
+        $query .= "post_status = '{$postStatus}', ";
+        $query .= "post_tags = '{$postTags}', ";
+        $query .= "post_content = '{$postContent}', ";
+        $query .= "post_image = '{$postImage}' ";
+        $query .= "WHERE post_id = {$postId} ";
+
+        $updatePost = mysqli_query($connection, $query);
+
+        confirmQuery($updatePost);
 
     }
 
@@ -73,6 +118,7 @@
 
     <div class="form-group">
         <img width="100" src="../images/<?php echo $postImage; ?>" name="postImage" alt="">
+        <input type="file" name="image">
     </div>
 
     <div class="form-group">
@@ -86,7 +132,7 @@
     </div>
 
     <div class="form-group">
-        <input class="btn btn-primary" type="submit" name="createPost" value="Publish Post">
+        <input class="btn btn-primary" type="submit" name="updatePost" value="Update Post">
     </div>
 
 </form>
