@@ -41,6 +41,7 @@
                                     echo "<td>{$postTags}</td>";
                                     echo "<td>{$postComments}</td>";
                                     echo "<td>{$postDate}</td>";
+                                    echo "<td><a href='posts.php?source=editPost&p_id={$postId}'>Edit</a></td>";
                                     echo "<td><a href='posts.php?delete={$postId}'>Delete</a></td>";
                                     echo "</tr>";
                                 }
