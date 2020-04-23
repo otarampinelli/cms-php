@@ -37,10 +37,10 @@
                 <?php 
                 
                 while($row = mysqli_fetch_assoc($selectBar)) {
-            
-                    $cat_title = $row['cat_title'];
+                    $catId = $row['cat_id'];
+                    $catTitle = $row['cat_title'];
         
-                    echo "<li><a href='#'>{$cat_title}</a></li>";
+                    echo "<li><a href='category.php?category=$catId'>{$catTitle}</a></li>";
         
                 }
                 
