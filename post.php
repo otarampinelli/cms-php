@@ -1,5 +1,6 @@
 <?php include "includes/db.php"; ?>
 <?php include "includes/header.php"; ?>
+<?php include "admin/functions.php"; ?>
 
 <body>
 
@@ -72,11 +73,18 @@
                         $postId = $_GET['p_id'];
 
                         $commentAuthor = $_POST['commentAuthor'];
-                        $commnetEmail = $_POST['comment_email'];
-                        $commentContent = $_POST['comment_content'];
+                        $commnetEmail = $_POST['commentEmail'];
+                        $commentContent = $_POST['commentContent'];
 
                         $query = "INSERT INTO comments (comment_post_id, comment_author, comment_email, comment_content, comment_status, comment_date) ";
-                        $query .= "VALUES ($postId, '{$commentAuthor}', '{$commnetEmail}', '{$commentContent}', 'unapproved', now() )"
+                        $query .= "VALUES ($postId, '{$commentAuthor}', '{$commnetEmail}', '{$commentContent}', 'unapproved', now())";
+                        $createComment = mysqli_query($connection, $query);
+
+                        if($createComment) {
+                            echo "success";
+                        }
+
+                        confirmQuery($createComment);
 
                     }
 
