@@ -35,7 +35,8 @@
                                     echo "<td>{$postId}</td>";
                                     echo "<td>{$postAuthor}</td>";
                                     echo "<td>{$postTitle}</td>";
-
+                                    
+                                    // add category 
                                     $query = "SELECT * FROM categories WHERE cat_id = {$postCategory} ";
                                     $selectCategory = mysqli_query($connection, $query);
 
