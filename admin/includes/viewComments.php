@@ -10,6 +10,7 @@
                                 <th>Date</th>
                                 <th>Approve</th>
                                 <th>UnApprove</th>
+                                <!--<th>Edit</th>-->
                                 <th>Delete</th>
                             </tr>
                         </thead>
@@ -33,7 +34,6 @@
                                     echo "<tr>";
                                     echo "<td>{$commentId}</td>";
                                     echo "<td>{$commentAuthor}</td>";
-                                    echo "<td>{$commentAuthor}</td>";
                                     echo "<td>{$commentContent}</td>";
                                     
                                     // // add category 
@@ -50,12 +50,13 @@
 
                                     echo "<td>{$commentEmail}</td>";
                                     echo "<td>{$commentStatus}</td>";
+                                    echo "<td>Some title</td>";
                                     echo "<td>{$commentDate}</td>";
-                                    echo "<td><a href='posts.php?source=editPost&p_id={$postId}'>Approve</a></td>";
-                                    echo "<td><a href='posts.php?delete={$postId}'>UnApprove</a></td>";
+                                    echo "<td><a href='posts.php?source=editPost&p_id='>Approve</a></td>";
+                                    echo "<td><a href='posts.php?delete='>UnApprove</a></td>";
 
-                                    echo "<td><a href='posts.php?source=editPost&p_id={$postId}'>Edit</a></td>";
-                                    echo "<td><a href='posts.php?delete={$postId}'>Delete</a></td>";
+                                   // echo "<td><a href='posts.php?source=editPost&p_id='>Edit</a></td>";
+                                    echo "<td><a href='posts.php?delete='>Delete</a></td>";
                                     echo "</tr>";
                                 }
 
