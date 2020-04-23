@@ -68,9 +68,19 @@
                 <?php 
                 
                     if(isset($_POST['createComment'])) {
-                        echo $_POST['commentAuthor'];
+
+                        $postId = $_GET['p_id'];
+
+                        $commentAuthor = $_POST['commentAuthor'];
+                        $commnetEmail = $_POST['comment_email'];
+                        $commentContent = $_POST['comment_content'];
+
+                        $query = "INSERT INTO comments (comment_post_id, comment_author, comment_email, comment_content, comment_status, comment_date) ";
+                        $query .= "VALUES ($postId, '{$commentAuthor}', '{$commnetEmail}', '{$commentContent}', 'unapproved', now() )"
+
                     }
 
+               
                 ?>
 
                 <!-- Comments Form -->
