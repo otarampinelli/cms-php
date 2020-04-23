@@ -35,7 +35,18 @@
                                     echo "<td>{$postId}</td>";
                                     echo "<td>{$postAuthor}</td>";
                                     echo "<td>{$postTitle}</td>";
-                                    echo "<td>{$postCategory}</td>";
+
+                                    $query = "SELECT * FROM categories WHERE cat_id = {$postCategory} ";
+                                    $selectCategory = mysqli_query($connection, $query);
+
+                                    while($row = mysqli_fetch_assoc($selectCategory)) {
+                                        $catId = $row['cat_id'];
+                                        $catTitle = $row['cat_title'];
+
+                                        echo "<td>{$catTitle}</td>";
+                                
+                                    }
+
                                     echo "<td>{$postStatus}</td>";
                                     echo "<td><img width='100' src='../images/$postImage' alt='image'></td>";
                                     echo "<td>{$postTags}</td>";
