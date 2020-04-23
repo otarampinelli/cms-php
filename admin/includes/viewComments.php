@@ -3,13 +3,14 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Author</th>
-                                <th>Title</th>
-                                <th>Category</th>
-                                <th>Status</th>
-                                <th>Image</th>
-                                <th>Tags</th>
                                 <th>Comments</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                                <th>In Response to</th>
                                 <th>Date</th>
+                                <th>Approve</th>
+                                <th>UnApprove</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -17,42 +18,42 @@
 
                             <?php 
                             
-                                $query = "SELECT * FROM posts";
-                                $selectPosts = mysqli_query($connection, $query);
+                                $query = "SELECT * FROM comments";
+                                $selectComments = mysqli_query($connection, $query);
 
-                                while($row = mysqli_fetch_assoc($selectPosts)) {
-                                    $postId = $row['post_id'];
-                                    $postAuthor = $row['post_author'];
-                                    $postTitle = $row['post_title'];
-                                    $postCategory = $row['post_category_id'];
-                                    $postStatus = $row['post_status'];
-                                    $postImage = $row['post_image'];
-                                    $postTags = $row['post_tags'];
-                                    $postComments = $row['post_comment_count'];
-                                    $postDate = $row['post_date'];
+                                while($row = mysqli_fetch_assoc($selectComments)) {
+                                    $commentId = $row['comment_id'];
+                                    $commentPost = $row['comment_post_id'];
+                                    $commentAuthor = $row['comment_author'];
+                                    $commentContent = $row['comment_content'];
+                                    $commentEmail = $row['comment_email'];
+                                    $commentStatus = $row['comment_status'];
+                                    $commentDate = $row['comment_date'];
 
                                     echo "<tr>";
-                                    echo "<td>{$postId}</td>";
-                                    echo "<td>{$postAuthor}</td>";
-                                    echo "<td>{$postTitle}</td>";
+                                    echo "<td>{$commentId}</td>";
+                                    echo "<td>{$commentAuthor}</td>";
+                                    echo "<td>{$commentAuthor}</td>";
+                                    echo "<td>{$commentContent}</td>";
                                     
-                                    // add category 
-                                    $query = "SELECT * FROM categories WHERE cat_id = {$postCategory} ";
-                                    $selectCategory = mysqli_query($connection, $query);
+                                    // // add category 
+                                    // $query = "SELECT * FROM categories WHERE cat_id = {$postCategory} ";
+                                    // $selectCategory = mysqli_query($connection, $query);
 
-                                    while($row = mysqli_fetch_assoc($selectCategory)) {
-                                        $catId = $row['cat_id'];
-                                        $catTitle = $row['cat_title'];
+                                    // while($row = mysqli_fetch_assoc($selectCategory)) {
+                                    //     $catId = $row['cat_id'];
+                                    //     $catTitle = $row['cat_title'];
 
-                                        echo "<td>{$catTitle}</td>";
+                                    //     echo "<td>{$catTitle}</td>";
                                 
-                                    }
+                                    // }
 
-                                    echo "<td>{$postStatus}</td>";
-                                    echo "<td><img width='100' src='../images/$postImage' alt='image'></td>";
-                                    echo "<td>{$postTags}</td>";
-                                    echo "<td>{$postComments}</td>";
-                                    echo "<td>{$postDate}</td>";
+                                    echo "<td>{$commentEmail}</td>";
+                                    echo "<td>{$commentStatus}</td>";
+                                    echo "<td>{$commentDate}</td>";
+                                    echo "<td><a href='posts.php?source=editPost&p_id={$postId}'>Approve</a></td>";
+                                    echo "<td><a href='posts.php?delete={$postId}'>UnApprove</a></td>";
+
                                     echo "<td><a href='posts.php?source=editPost&p_id={$postId}'>Edit</a></td>";
                                     echo "<td><a href='posts.php?delete={$postId}'>Delete</a></td>";
                                     echo "</tr>";
