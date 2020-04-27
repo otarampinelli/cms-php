@@ -20,15 +20,16 @@
                             <?php 
                             
                                 $query = "SELECT * FROM users";
-                                $selectComments = mysqli_query($connection, $query);
+                                $selectUsers = mysqli_query($connection, $query);
 
-                                while($row = mysqli_fetch_assoc($selectComments)) {
+                                while($row = mysqli_fetch_assoc($selectUsers)) {
                                     $userId = $row['user_id'];
                                     $username = $row['username'];
                                     $userFirstname = $row['user_firstname'];
                                     $userLastname = $row['user_lastname'];
                                     $userEmail = $row['user_email'];
                                     $userRole = $row['user_role'];
+                                    $userImage = $row['user_image'];
                                     $userDate = date(DATE_RFC822);
 
                                     echo "<tr>";
@@ -50,6 +51,8 @@
 
                                     echo "<td>{$userLastname}</td>";
                                     echo "<td>{$userEmail}</td>";
+                                    
+                                    // Insert link for post
 
                                     // $query = "SELECT * FROM posts WHERE post_id = $commentPost ";
                                     // $postQuery = mysqli_query($connection, $query);
