@@ -80,7 +80,7 @@
                         $query .= "VALUES ($postId, '{$commentAuthor}', '{$commnetEmail}', '{$commentContent}', 'unapproved', now())";
                         $createComment = mysqli_query($connection, $query);
 
-                        if(!createComment) {
+                        if(!$createComment) {
                             die('QUERY FAILED' . mysqli_eror($connection));
                         }
 

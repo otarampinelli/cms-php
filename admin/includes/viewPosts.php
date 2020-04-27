@@ -89,7 +89,7 @@
 
     $deleteQuery = mysqli_query($connection, $query);
 
-    header('Location: posts.php')
+    header('Location: posts.php');
 
    }
 
