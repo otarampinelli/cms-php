@@ -12,19 +12,15 @@
         //move_uploaded_file($postImageTemp, '../images/$postImages');
 
 
-    //     $query = "INSERT INTO posts(post_category_id, post_title, post_author, 
-    //     post_date, post_image, post_content, post_tags, post_status) ";
+        $query = "INSERT INTO users(username, user_password, 
+        user_firstname, user_lastname, user_email, user_role) ";
 
-    //     $query .= "VALUES({$postCategory}, '{$postTitle}', '{$postAuthor}', now(), '{$postImages}', '{$postContent}', 
-    //     '{$postTags}', '{$postStatus}' ) ";
+        $query .= "VALUES('{$username}', '{$userPassword}', '{$userFirstname}', '{$userLastname}', '{$userEmail}', 
+        '{$userRole}' ) ";
 
-    //     $postQuery = mysqli_query($connection, $query);
+        $userQuery = mysqli_query($connection, $query);
 
-    //    confirmQuery($postQuery);
-
-    //  if(!$postQuery) {
-    //        die('FAILED' . mysqli_error($connection));
-    //    } 
+        confirmQuery($userQuery);
 
     }
 
