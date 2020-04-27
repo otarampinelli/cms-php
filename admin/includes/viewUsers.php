@@ -71,25 +71,11 @@
                                     echo "<td>{$userDate}</td>";
                                     //echo "<td><a href='comments.php?approve='>Approve</a></td>";
                                     //echo "<td><a href='comments.php?unapprove='>Unapprove</a></td>";
-                                    //echo "<td><a href='comments.php?delete='>Delete</a></td>";
+                                    echo "<td><a href='users.php?delete=$userId'>Delete</a></td>";
                                     echo "</tr>";
                                 }
 
                             ?>
-
-                            <!--
-                                <td>10</td>
-                                <td>John</td>
-                                <td>Bootstrap Framework</td>
-                                <td>Bootstrap</td>
-                                <td>Status</td>
-                                <td>Image</td>
-                                <td>Tags</td>
-                                <td>Comments</td>
-                                <td>Date</td>
-
-                            -->
-                            
                         </tbody>
                     </table>
 
@@ -123,13 +109,17 @@
 
    if(isset($_GET['delete'])) {
 
-    $idComment = $_GET['delete'];
+    $idUser = $_GET['delete'];
 
-    $query = "DELETE FROM comments WHERE comment_id = {$idComment} ";
+    $query = "DELETE FROM users WHERE user_id = {$idUser} ";
 
     $deleteQuery = mysqli_query($connection, $query);
 
-    header("Location: comments.php");
+    if(!$deleteQuery) {
+        die('query failed' . mysqli_error($connection));
+    }
+
+    header("Location: users.php");
 
    }
 
