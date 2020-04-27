@@ -25,6 +25,7 @@
                                 while($row = mysqli_fetch_assoc($selectUsers)) {
                                     $userId = $row['user_id'];
                                     $username = $row['username'];
+                                    $userPassword = $row['user_password'];
                                     $userFirstname = $row['user_firstname'];
                                     $userLastname = $row['user_lastname'];
                                     $userEmail = $row['user_email'];
@@ -37,40 +38,40 @@
                                     echo "<td>{$username}</td>";
                                     echo "<td>{$userFirstname}</td>";
                                     
-                                    // // add category 
-                                    // $query = "SELECT * FROM categories WHERE cat_id = {$postCategory} ";
-                                    // $selectCategory = mysqli_query($connection, $query);
+                                    // add category 
+                                        // $query = "SELECT * FROM categories WHERE cat_id = {$postCategory} ";
+                                        // $selectCategory = mysqli_query($connection, $query);
 
-                                    // while($row = mysqli_fetch_assoc($selectCategory)) {
-                                    //     $catId = $row['cat_id'];
-                                    //     $catTitle = $row['cat_title'];
+                                        // while($row = mysqli_fetch_assoc($selectCategory)) {
+                                        //     $catId = $row['cat_id'];
+                                        //     $catTitle = $row['cat_title'];
 
-                                    //     echo "<td>{$catTitle}</td>";
-                                
-                                    // }
+                                        //     echo "<td>{$catTitle}</td>";
+                                    
+                                        // }
 
                                     echo "<td>{$userLastname}</td>";
                                     echo "<td>{$userEmail}</td>";
                                     
                                     // Insert link for post
 
-                                    // $query = "SELECT * FROM posts WHERE post_id = $commentPost ";
-                                    // $postQuery = mysqli_query($connection, $query);
+                                        // $query = "SELECT * FROM posts WHERE post_id = $commentPost ";
+                                        // $postQuery = mysqli_query($connection, $query);
 
-                                    // while($row = mysqli_fetch_assoc($postQuery)) {
+                                        // while($row = mysqli_fetch_assoc($postQuery)) {
 
-                                    //     $postId = $row['post_id'];
-                                    //     $postTitle = $row['post_title'];
+                                        //     $postId = $row['post_id'];
+                                        //     $postTitle = $row['post_title'];
 
-                                    //     echo "<td><a href='../post.php?p_id=$postId'>{$postTitle}</a></td>";
+                                        //     echo "<td><a href='../post.php?p_id=$postId'>{$postTitle}</a></td>";
 
-                                    // }
+                                        // }
 
                                     echo "<td>{$userRole}</td>";
                                     echo "<td>{$userDate}</td>";
-                                    // echo "<td><a href='comments.php?approve=$commentId'>Approve</a></td>";
-                                    // echo "<td><a href='comments.php?unapprove=$commentId'>Unapprove</a></td>";
-                                    // echo "<td><a href='comments.php?delete=$commentId'>Delete</a></td>";
+                                    //echo "<td><a href='comments.php?approve='>Approve</a></td>";
+                                    //echo "<td><a href='comments.php?unapprove='>Unapprove</a></td>";
+                                    //echo "<td><a href='comments.php?delete='>Delete</a></td>";
                                     echo "</tr>";
                                 }
 
