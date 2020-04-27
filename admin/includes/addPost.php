@@ -27,9 +27,9 @@
 
        confirmQuery($postQuery);
 
-     /*  if(!$postQuery) {
-           die('FAILED' . mysqli_error($connection));
-       } */
+    //  if(!$postQuery) {
+    //        die('FAILED' . mysqli_error($connection));
+    //    } 
 
     }
 
