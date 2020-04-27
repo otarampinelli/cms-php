@@ -32,11 +32,11 @@
 
                             switch($source) {
 
-                                case 'addPost':
+                                case 'addUser':
                                     include "includes/addUser.php";
                                 break;
 
-                                case 'editPost':
+                                case 'editUser':
                                     include "includes/editUser.php";
                                 break;
 
