@@ -80,11 +80,9 @@
                         $query .= "VALUES ($postId, '{$commentAuthor}', '{$commnetEmail}', '{$commentContent}', 'unapproved', now())";
                         $createComment = mysqli_query($connection, $query);
 
-                        if($createComment) {
-                            echo "success";
+                        if(!createComment) {
+                            die('QUERY FAILED' . mysqli_eror($connection));
                         }
-
-                        confirmQuery($createComment);
 
 
                         $query = "UPDATE posts SET post_comment_count = post_comment_count + 1 ";

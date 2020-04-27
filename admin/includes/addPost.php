@@ -16,17 +16,21 @@
         //$postComment = 4;
 
 
-        move_uploaded_file($postImageTemp, "../images/$postImages");
+        move_uploaded_file($postImageTemp, '../images/$postImages');
 
         $query = "INSERT INTO posts(post_category_id, post_title, post_author, 
         post_date, post_image, post_content, post_tags, post_comment_count, post_status) ";
 
         $query .= "VALUES({$postCategory}, '{$postTitle}', '{$postAuthor}', now(), '{$postImages}', '{$postContent}', 
-        '{$postTags}', {$postStatus}' ) ";
+        '{$postTags}', '{$postStatus}' ) ";
 
         $postQuery = mysqli_query($connection, $query);
 
        confirmQuery($postQuery);
+
+     /*  if(!$postQuery) {
+           die('FAILED' . mysqli_error($connection));
+       } */
 
     }
 
@@ -43,7 +47,7 @@
         <select name="postCategory">
             <?php 
             
-             $query = "SELECT * FROM categories";
+             $query = "SELECT * FROM categories ";
              $selectCategories = mysqli_query($connection, $query);
 
              confirmQuery($selectCategories);
