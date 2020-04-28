@@ -10,11 +10,8 @@
                                 <th>Date</th>
                                 <th>Admin</th>
                                 <th>Subscriber</th>
-                                <th>Delete</th>
-                                <!-- <th>Approve</th>
-                                <th>Unapprove</th>
                                 <th>Edit</th>
-                                <th>Delete</th> -->
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -74,6 +71,7 @@
                                     echo "<td>{$userDate}</td>";
                                     echo "<td><a href='users.php?changeAdmin=$userId'>Admin</a></td>";
                                     echo "<td><a href='users.php?changeSub=$userId'>Subscriber</a></td>";
+                                    echo "<td><a href='users.php?source=editUser&editUser=$userId.php'>Edit</a></td>";
                                     echo "<td><a href='users.php?delete=$userId'>Delete</a></td>";
                                     echo "</tr>";
                                 }
