@@ -3,8 +3,9 @@
     if(isset($_GET['editUser'])) {
 
         $user_id = $_GET['editUser'];
+        
 
-    $query = "SELECT * FROM users WHERE user_id = '$user_id' ";
+    $query = "SELECT * FROM users WHERE user_id = $user_id ";
         $editQuery = mysqli_query($connection, $query);
 
         while($row = mysqli_fetch_assoc($editQuery)) {
@@ -36,15 +37,18 @@
         //move_uploaded_file($postImageTemp, '../images/$postImages');
 
 
-        $query = "INSERT INTO users(username, user_password, 
-        user_firstname, user_lastname, user_email, user_role) ";
+        $query = "UPDATE users SET ";
+        $query .= "user_firstname = '{$userFirstname}', ";
+        $query .= "user_lastname = '{$userLastname}', ";
+        $query .= "user_role = '{$userRole}', ";
+        $query .= "username = '{$username}', ";
+        $query .= "user_email = '{$userEmail}', ";
+        $query .= "user_password = '{$userPassword}' ";
+        $query .= "WHERE user_id = '$user_id' ";
 
-        $query .= "VALUES('{$username}', '{$userPassword}', '{$userFirstname}', '{$userLastname}', '{$userEmail}', 
-        '{$userRole}' ) ";
+        $editUser = mysqli_query($connection, $query);
 
-        $userQuery = mysqli_query($connection, $query);
-
-        confirmQuery($userQuery);
+        confirmQuery($editUser);
 
     }
 
