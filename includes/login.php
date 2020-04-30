@@ -28,10 +28,7 @@
 
         }
 
-        if($username !== $db_username && $password !== $db_userPassword) {
-            header("Location: ../index.php");
-            echo 'Login not valid';
-        } else if($username == $db_username && $password == $db_userPassword) {
+        if($username === $db_username && $password === $db_userPassword) {
 
             $_SESSION['username'] = $db_username;
             $_SESSION['firstname'] = $db_userFirstname;
@@ -39,6 +36,7 @@
             $_SESSION['role'] = $db_userRole;
 
             header("Location: ../admin/index.php");
+
         } else {
             header("Location: ../index.php");
         }
