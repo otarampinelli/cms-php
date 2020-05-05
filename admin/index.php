@@ -83,7 +83,7 @@
 
                             <?php 
                             
-                            $query = "SELECT post_comment_count FROM posts";
+                            $query = "SELECT * FROM comments";
                             $selectPostCount = mysqli_query($connection, $query);
                             $postCount = mysqli_num_rows($selectPostCount);
 
@@ -112,9 +112,16 @@
                             </div>
                             <div class="col-xs-9 text-right">
 
-                        
+                                <?php 
+                                
+                                    $query = "SELECT * FROM users";
+                                    $selectUsers = mysqli_query($connection, $query);
+                                    $usersCount = mysqli_num_rows($selectUsers);
 
-                                <div class='huge'>23</div>
+                                    echo "<div class='huge'>{$usersCount}</div>";
+                                
+                                ?>
+
                                 <div> Users</div>
                             </div>
                         </div>
