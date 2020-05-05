@@ -98,7 +98,7 @@
 
         $userId = $_GET['changeSub'];
 
-        $query = "UPDATE users SET user_role = 'subscribe' WHERE user_id = $userId ";
+        $query = "UPDATE users SET user_role = 'subscriber' WHERE user_id = $userId ";
         $changeSub = mysqli_query($connection, $query);
 
         header("Location: users.php");
