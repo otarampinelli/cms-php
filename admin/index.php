@@ -143,7 +143,17 @@
                                 <i class="fa fa-list fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class='huge'>13</div>
+
+                                <?php 
+                                
+                                    $query = "SELECT * FROM categories";
+                                    $selectCategories = mysqli_query($connection, $query);
+                                    $categoriesCount = mysqli_num_rows($selectCategories);
+
+                                    echo "<div class='huge'>{$categoriesCount}</div>";
+
+                                ?>
+
                                 <div>Categories</div>
                             </div>
                         </div>
