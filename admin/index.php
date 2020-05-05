@@ -85,9 +85,9 @@
                             
                             $query = "SELECT * FROM comments";
                             $selectPostCount = mysqli_query($connection, $query);
-                            $postCount = mysqli_num_rows($selectPostCount);
+                            $commentCount = mysqli_num_rows($selectPostCount);
 
-                            echo "<div class='huge'>{$postCount}</div>";
+                            echo "<div class='huge'>{$commentCount}</div>";
                         
                         ?>
                             <div>Comments</div>
@@ -178,7 +178,19 @@
                 function drawChart() {
                     var data = google.visualization.arrayToDataTable([
                     ['Data', 'count'],
-                    ['Posts', 1000],
+
+                        <?php 
+                        
+                            $elementsText = ['Active Posts', 'Comments', 'Users', 'Categories'];
+                            $elementCount = [$postCount, $commentCount, $usersCount, $categoriesCount];
+
+                            for($i = 0; $i < 4; $i++) {
+                                echo "['{$elementsText[$i]}'" . " ," . "{$elementCount[$i]}],";
+                            }
+
+                        ?>
+
+                    // ['Posts', 1000],
                     ]);
 
                     var options = {
