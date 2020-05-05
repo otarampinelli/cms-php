@@ -47,7 +47,18 @@
                                 <i class="fa fa-file-text fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                        <div class='huge'>12</div>
+
+                            <?php 
+                            
+                                $query = "SELECT * FROM posts";
+                                $selectAll = mysqli_query($connection, $query);
+                                $postCount = mysqli_num_rows($selectAll);
+
+
+                                echo "<div class='huge'>{$postCount}</div>"
+                            ?>
+
+                        
                                 <div>Posts</div>
                             </div>
                         </div>
@@ -69,7 +80,16 @@
                                 <i class="fa fa-comments fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                            <div class='huge'>23</div>
+
+                            <?php 
+                            
+                            $query = "SELECT post_comment_count FROM posts";
+                            $selectPostCount = mysqli_query($connection, $query);
+                            $postCount = mysqli_num_rows($selectPostCount);
+
+                            echo "<div class='huge'>{$postCount}</div>";
+                        
+                        ?>
                             <div>Comments</div>
                             </div>
                         </div>
@@ -91,7 +111,10 @@
                                 <i class="fa fa-user fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                            <div class='huge'>23</div>
+
+                        
+
+                                <div class='huge'>23</div>
                                 <div> Users</div>
                             </div>
                         </div>
