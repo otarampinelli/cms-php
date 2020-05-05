@@ -27,6 +27,37 @@
     
 ?>
 
+<?php
+
+if(isset($_POST['updateUser'])) {
+
+    $userFirstname = $_POST['userFirstname'];
+    $userLastname = $_POST['userLastname'];
+    $userRole = $_POST['userRole'];
+    $username = $_POST['username'];
+    $userEmail = $_POST['userEmail'];
+    $userPassword = $_POST['password'];
+
+    //move_uploaded_file($postImageTemp, '../images/$postImages');
+
+
+    $query = "UPDATE users SET ";
+    $query .= "user_firstname = '{$userFirstname}', ";
+    $query .= "user_lastname = '{$userLastname}', ";
+    $query .= "user_role = '{$userRole}', ";
+    $query .= "username = '{$username}', ";
+    $query .= "user_email = '{$userEmail}', ";
+    $query .= "user_password = '{$userPassword}' ";
+    $query .= "WHERE username = '{$username}' ";
+
+    $editUser = mysqli_query($connection, $query);
+
+    confirmQuery($editUser);
+
+}
+
+?>
+
 
 <body>
 
@@ -101,7 +132,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input class="btn btn-primary" type="submit" name="editUser" value="Update Profile">
+                            <input class="btn btn-primary" type="submit" name="updateUser" value="Update Profile">
                         </div>
 
                         </form>
