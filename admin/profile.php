@@ -4,6 +4,25 @@
 
     if(isset($_SESSION['username'])) {
         
+        $username = $_SESSION['username'];
+
+        $query = "SELECT * FROM users WHERE username = '{$username}'";
+
+        $selectUser = mysqli_query($connection, $query);
+
+        while($row = mysqli_fetch_array($selectUser)) {
+
+            $userId = $row['user_id'];
+            $username = $row['username'];
+            $userPassword = $row['user_password'];
+            $userFirstname = $row['user_firstname'];
+            $userLastname = $row['user_lastname'];
+            $userEmail = $row['user_email'];
+            $userImage = $row['user_image'];
+            $userRole = $row['user_role'];
+
+        }
+
     }
     
 ?>
@@ -51,7 +70,7 @@
                                     if($userRole == "admin") {
                                         echo "<option value='admin'>admin</option>";
                                     } else {
-                                        echo "<option value='subscriber'>Subscriber</option>";
+                                        echo "<option value='subscriber'>subscriber</option>";
                                     }
                                 
                                 ?>
@@ -82,7 +101,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input class="btn btn-primary" type="submit" name="editUser" value="Edit User">
+                            <input class="btn btn-primary" type="submit" name="editUser" value="Update Profile">
                         </div>
 
                         </form>
