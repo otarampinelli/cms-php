@@ -22,6 +22,8 @@
 
         confirmQuery($userQuery);
 
+        echo "User Created: " . " " . "<a href='users.php'>View Users</a>";
+
     }
 
 ?>
