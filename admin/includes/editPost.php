@@ -110,10 +110,24 @@
         <label for="title">Post Author</label>
         <input value="<?php echo $postAuthor; ?>" type="text" class="form-control" name="author">
     </div>
-
+    
     <div class="form-group">
-        <label for="postStatus">Post Status</label>
-        <input value="<?php echo $postStatus; ?>" type="text" class="form-control" name="postStatus">
+        <select name="postStatus" id="">
+
+            <option value='<?php echo $postStatus; ?>'><?php echo $postStatus; ?></option>
+            
+            <?php 
+            
+                if($postStatus == 'published') {
+                    echo " <option value='draft'>Draft</option>";
+                } else {
+                    echo " <option value='published'>Published</option>";
+                }
+            
+            ?>
+
+
+        </select>
     </div>
 
     <div class="form-group">
