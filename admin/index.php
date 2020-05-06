@@ -1,6 +1,6 @@
 <?php include "includes/headerAdmin.php"; ?>
 
-<body>
+
 
     <div id="wrapper">
 

@@ -80,7 +80,7 @@
 
     <div class="form-group">
         <label for="postContent">Post Content</label>
-        <textarea class="form-control" name="postContent" id="" cols="30" rows="10"></textarea>
+        <textarea class="form-control" name="postContent" id="form-body" cols="30" rows="10"></textarea>
     </div>
 
     <div class="form-group">
@@ -88,3 +88,11 @@
     </div>
 
 </form>
+
+<script>
+    ClassicEditor
+            .create(document.querySelector('#form-body'))
+            .catch( error => {
+                console.error( error );
+    })
+</script>
