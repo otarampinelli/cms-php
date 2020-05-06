@@ -22,11 +22,7 @@
                 //$post_comment_count = $row['post_comment_count'];
                 //$post_status = $row['post_status'];
 
-                if($post_status !== 'published') {
-
-                    echo "<h1 class='text-center'>No Post here sorry!</h1>";
-
-                } else {
+                if($post_status == 'published') {
 
                 ?>
 
