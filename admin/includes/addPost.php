@@ -28,6 +28,11 @@
 
         confirmQuery($postQuery);
 
+        $getPost = mysqli_insert_id($connection);
+
+        echo "<p class='bg-success'>Post Update. <a href='../post.php?p_id={$getPost}'>View Post.</a></p>";
+        echo "<p class='bg-success'><a href='./posts.php'>Edit More Posts</a></p>";
+
     }
 
 ?>
