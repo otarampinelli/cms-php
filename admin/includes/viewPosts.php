@@ -61,7 +61,7 @@
 
     <div id="bulkOptionContainer" class="col-xs-4 bulkContainer">
 
-        <select class="form-control" name="bulkOptions" id="">
+        <select class="form-control bulkCheck" name="bulkOptions" id="">
             <option value="">Select Options</option>
             <option value="published">Publish</option>
             <option value="draft">Draft</option>
@@ -118,7 +118,7 @@
 
 ?>
 
-    <td><input class='checkBoxes' type='checkbox' name='checkboxArray[]' value='<?php echo $postId ?>'></input></td>
+    <td><input class='checkBoxes box-style' type='checkbox' name='checkboxArray[]' value='<?php echo $postId ?>'></input></td>
 
 <?php
 

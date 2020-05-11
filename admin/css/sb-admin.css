@@ -226,3 +226,8 @@ ul.alert-dropdown {
 .bulkContainer {
     padding: 0px;
 }
+
+.box-style:checked {
+    padding: 200px;
+    display: inline-block;
+}
