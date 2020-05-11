@@ -5,10 +5,8 @@
 // });
 
 const check = document.querySelector('#selectAllBoxes');
-console.log(check);
 
 const boxes = document.querySelectorAll('.checkBoxes');
-console.log(boxes);
 
 check.addEventListener('click', e => {
 
