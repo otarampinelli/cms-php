@@ -59,7 +59,7 @@
 
 <table class="table table-bordered table-hover">
 
-    <div id="bulkOptionContainer" class="col-xs-4">
+    <div id="bulkOptionContainer" class="col-xs-4 bulkContainer">
 
         <select class="form-control" name="bulkOptions" id="">
             <option value="">Select Options</option>
