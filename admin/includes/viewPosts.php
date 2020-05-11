@@ -6,7 +6,7 @@
 
         foreach($checkbox as $check) {
 
-            
+            $bulkOptions = $_POST['bulkOptions'];
 
         }
 
@@ -21,7 +21,7 @@
 
     <div id="bulkOptionContainer" class="col-xs-4">
 
-        <select class="form-control" name="" id="">
+        <select class="form-control" name="bulkOptions" id="">
             <option value="">Select Options</option>
             <option value="">Publish</option>
             <option value="">Draft</option>
