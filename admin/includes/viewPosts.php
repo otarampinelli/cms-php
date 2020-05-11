@@ -1,3 +1,20 @@
+<?php 
+
+    if(isset($_POST['checkboxArray'])) {
+        
+        $checkbox = $_POST['checkboxArray'];
+
+        foreach($checkbox as $check) {
+
+            
+
+        }
+
+    }
+
+?>
+
+
 <form action="" method="post">
 
 <table class="table table-bordered table-hover">
@@ -61,7 +78,7 @@
 
 ?>
 
-    <td><input class='checkBoxes' type='checkbox' name='checkBox[]' value='<?php echo $postId ?>'></input></td>
+    <td><input class='checkBoxes' type='checkbox' name='checkboxArray[]' value='<?php echo $postId ?>'></input></td>
 
 <?php
 
