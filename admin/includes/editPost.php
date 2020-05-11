@@ -66,6 +66,8 @@
 
         confirmQuery($updatePost);
 
+        echo "<p>Post Update. <a href='../post.php?p_id={$getPost}'>View Post.</a></p>";
+
     }
 
 ?>
