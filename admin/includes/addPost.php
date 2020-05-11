@@ -1,5 +1,6 @@
 <?php 
 
+
     if(isset($_POST['createPost'])) {
         
         $postTitle = $_POST['title'];
@@ -25,7 +26,7 @@
 
         $postQuery = mysqli_query($connection, $query);
 
-       confirmQuery($postQuery);
+        confirmQuery($postQuery);
 
     }
 
